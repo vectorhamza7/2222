@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant AR Menu - Image Tracking</title>
+    <!-- Include A-Frame for 3D rendering -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Include AR.js for Augmented Reality -->
+    <script src="https://cdn.jsdelivr.net/npm/ar.js/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <!-- AR Scene setup with image tracking -->
+    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
+      
+      <!-- Image Target 1: Custom image menu -->
+      <a-marker type="pattern" url="patt/pattern-marker.patt">
+        <a-entity gltf-model="url(models/SENTAL TEST2.glb)" scale="0.5 0.5 0.5" position="0 0 0"></a-entity>
+      </a-marker>
+      
+      <!-- Camera with adjustable properties -->
+      <a-entity 
+        camera 
+        position="0 1.6 4" 
+        fov="70" 
+        look-controls="pointerLockEnabled: false; touchEnabled: true;"
+        wasd-controls="enabled: false" 
+        orbit-controls="enableDamping: true; dampingFactor: 0.25; rotateSpeed: 0.5;">
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
